@@ -1,0 +1,403 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
+}
+
+.containerNavBox1:hover .containerNavBox2 {
+  visibility: visible;
+  transform: translateY(0);
+  opacity: 100;
+}
+
+.limitText {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.multiline-ellipsis {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* start showing ellipsis when 2rd line is reached */
+  white-space: pre-wrap; /* let the text wrap preserving spaces */
+}
+
+.multiline-ellipsis3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* start showing ellipsis when 2rd line is reached */
+  white-space: pre-wrap; /* let the text wrap preserving spaces */
+}
+
+.tag {
+  display: inline-block;
+  padding: 5px 15px;
+  background-color: #70c1b3;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.tag::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: -14px;
+  width: 0;
+  height: 0px;
+  border-top: 15.5px solid transparent;
+  border-bottom: 16px solid transparent;
+  border-left: 15px solid #70c1b3;
+}
+
+//custom arrow slicky productDetails
+
+.productDetails {
+  button.slick-arrow.slick-next {
+    right: 12px;
+  }
+  button.slick-arrow.slick-prev {
+    left: 12px;
+    z-index: 2;
+  }
+}
+//custom arrow slicky sliderBanner
+.sliderBanner {
+  .slick-prev:before,
+  .slick-next:before {
+    font-size: 32px;
+  }
+  // button.slick-arrow.slick-prev {
+  //   z-index: 2;
+  //   left: 25px;
+  // }
+  // button.slick-arrow.slick-next {
+  //   right: 25px;
+  //   z-index: 2;
+  // }
+
+  .slick-prev {
+    left: 30px;
+    color: white;
+    z-index: 2;
+    width: 30px;
+    height: 30px;
+    background-color: rgba($color: #fff, $alpha: 0.6);
+    padding: 10px;
+  }
+  .slick-next {
+    right: 30px;
+    color: white;
+    z-index: 2;
+    width: 30px;
+    height: 30px;
+    background-color: rgba($color: #fff, $alpha: 0.6);
+    padding: 10px;
+  }
+  .slick-prev:hover,
+  .slick-prev:focus,
+  .slick-next:hover,
+  .slick-next:focus {
+    color: #fff;
+    outline: none;
+    background: rgba($color: #70c1b3, $alpha: 0.6);
+  }
+  .slick-dots {
+    display: none !important;
+    bottom: 42px;
+    li button:before {
+      color: white;
+      font-size: 10px;
+    }
+    li.slick-active button:before {
+      opacity: 0.75;
+      color: #70c1b3;
+    }
+  }
+}
+
+//CartPreview
+
+.CartPreview {
+  .ant-drawer-header-title {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
+
+.ant-drawer {
+  border: none;
+  outline: none;
+}
+
+// ảnh thumnail
+.Imgthumb {
+  img {
+    border-radius: 8px;
+  }
+  &.activeImageThumb {
+    opacity: 100;
+    img {
+      border: 4px solid #70c1b3;
+    }
+  }
+}
+
+.sliderBanner {
+  img {
+    object-fit: fill;
+    // image-rendering: -webkit-optimize-contrast;
+    // image-rendering: crisp-edges;
+    filter: contrast(100%) brightness(110%); //làm nét ảnh
+  }
+}
+
+//cutome scrollbar
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #0000004d;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(148, 147, 147);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #70c1b3;
+  cursor: pointer;
+}
+
+//chỉ ẩn scroll mà mình muốn nhưng vẫn hoạt động scroll được
+.scroll-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scroll-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.filterProduct {
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  // //tree
+  // .ant-tree-title {
+  //   @apply text-text3;
+  // }
+  .ant-tree-node-selected {
+    color: #70c1b3;
+    background-color: unset !important;
+  }
+  // .ant-tree-list-holder-inner {
+  //   row-gap: 16px;
+  //   @apply transition-all;
+  // }
+  // .ant-tree-treenode-motion {
+  // }
+  .ant-tree-treenode {
+    margin-bottom: 10px;
+  }
+}
+
+// custom radio
+:where(.css-dev-only-do-not-override-mzwlov).ant-radio-wrapper
+  .ant-radio-checked
+  .ant-radio-inner {
+  border-color: #70c1b3;
+  background-color: #70c1b3;
+}
+
+.checkout {
+  .ant-select-selection-placeholder {
+    @apply text-[#9CA3AF] font-medium;
+  }
+  .ant-select-selection-item {
+    @apply text-text1 font-medium;
+  }
+}
+
+//active tab
+.second-link.active {
+  background-color: #92dbcf;
+  color: #fff;
+}
+
+.tabsOrder {
+  .ant-tabs-nav-wrap {
+    justify-content: center;
+  }
+  .ant-tabs-ink-bar.ant-tabs-ink-bar-animated {
+    background-color: #70c1b3;
+  }
+}
+:where(.css-dev-only-do-not-override-mzwlov).ant-tabs
+  .ant-tabs-tab.ant-tabs-tab-active
+  .ant-tabs-tab-btn {
+  color: #70c1b3;
+}
+:where(.css-dev-only-do-not-override-mzwlov).ant-tabs .ant-tabs-tab:hover {
+  color: #70c1b3;
+}
+
+:where(.css-dev-only-do-not-override-mzwlov).ant-steps
+  .ant-steps-item-finish
+  .ant-steps-item-icon {
+  background-color: #b5f1e7;
+}
+span.anticon.anticon-check.ant-steps-finish-icon {
+  color: #fff;
+}
+
+.ant-steps-item-icon {
+  background-color: #92dbcf !important;
+  border-color: #b5f1e7 !important;
+}
+span.ant-steps-icon {
+  color: #fff !important;
+}
+
+.disable-custom {
+  pointer-events: none;
+  opacity: 80;
+}
+
+//------
+.running-text-container {
+  width: 100%; /* Đảm bảo văn bản chiếm toàn bộ chiều rộng */
+  overflow: hidden; /* Ẩn phần vượt ra ngoài khung */
+}
+
+.running-text {
+  text-align: center;
+  display: block;
+  white-space: nowrap; /* Ngăn ngừa xuống dòng */
+  animation: runningText 15s linear infinite; /* Độ dài và tốc độ của animation */
+  transform: translateX(100%);
+}
+
+@keyframes runningText {
+  0% {
+    transform: translateX(100%); /* Bắt đầu từ bên phải */
+  }
+  100% {
+    transform: translateX(-100%); /* Di chuyển sang bên trái */
+  }
+}
+
+//format cho reactquill
+.entry-content,
+.entry-content .ql-snow .ql-editor {
+  font-size: 16px;
+  h1 {
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  h2,
+  h3,
+  h4 {
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+  h2 {
+    font-size: 32px;
+  }
+  h3 {
+    font-size: 26px;
+  }
+  h4 {
+    font-size: 22px;
+  }
+  p {
+    margin-bottom: 20px;
+    line-height: 2;
+  }
+  ul,
+  ol {
+    margin-left: 30px;
+  }
+  ul {
+    list-style: disc;
+  }
+  ol {
+    list-style: decimal;
+  }
+  li {
+    margin-bottom: 10px;
+  }
+  figure {
+    margin-bottom: 20px;
+  }
+  img {
+    border-radius: 20px;
+    margin-bottom: 10px;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+  }
+  figcaption {
+    text-align: center;
+    font-style: italic;
+    font-size: 14px;
+    color: #6b6b6b;
+  }
+  p {
+    margin-bottom: 16px;
+    @apply font-body;
+  }
+  @media screen and (max-width: 1023.98px) {
+    font-size: 14px;
+    h2 {
+      font-size: 26px;
+    }
+    h3 {
+      font-size: 24px;
+    }
+    h4 {
+      font-size: 20px;
+    }
+  }
+}
+.ql-editor {
+  min-height: 600px;
+}
